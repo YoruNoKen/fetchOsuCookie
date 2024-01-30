@@ -14,7 +14,7 @@ const FgWhite = "\x1b[37m";
 
 async function testCookie(cookie: string) {
     const me = (await fetch(`https://osu.ppy.sh/api/v2/me/osu`, {
-        headers: { Cookie: `osu_session=${process.env.OSU_SESSION}` },
+        headers: { Cookie: `osu_session=${cookie}` },
     }).then((res) => res.json())) as UserResponse;
 
     if ("authentication" in me) {
